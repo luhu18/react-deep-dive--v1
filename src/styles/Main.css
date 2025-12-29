@@ -1,0 +1,374 @@
+/* src/styles/Main.css */
+
+:root {
+  /* Light Theme (Default) */
+  --body-bg: hsl(0, 0%, 98%);
+  --card-bg: white; 
+  --text-main: #494c6b;
+  --text-primary: hsl(235, 19%, 35%);
+  --text-completed: hsl(233, 11%, 84%);
+  --border-color: hsl(236, 9%, 61%);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --check-gradient: linear-gradient(135deg,  hsl(280, 87%, 65%), hsla(224, 100%, 67%, 0.788));
+}
+
+[data-theme="dark"] {
+  /* Dark Theme - Identical names, different values */
+  --body-bg: #181920; 
+  --card-bg: #25273c; 
+  --text-main: #cacde8;
+  --text-primary: #cacde8; 
+  --text-completed: #4d5067;
+  --border-color: #393a4c;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --check-gradient: linear-gradient(135deg, hsl(240, 100%, 50%), hsl(280, 100%, 50%))
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--text-main);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* Containers that should look like "cards" */
+.task-list-manager, 
+.task-filters,
+.input-card,
+.task-control-sec {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary);
+    box-shadow: 0 5px 25px var(--shadow);
+    transition: background-color 0.4s ease;
+}
+
+.todo-app-main {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -119px;
+    z-index: 4;
+}
+
+.task-card-manager {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-list-manager {
+    border-radius: 5px;
+    overflow-y: scroll;
+    max-height: 400px;
+    
+}
+
+.input-card {
+   padding: 15px; 
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   outline: none;
+   box-sizing: border-box;
+}
+
+#new-task-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 18px;
+}
+
+.placeholder {
+    text-align: center;
+    line-height: 300px;
+}
+
+.task-item {
+    margin: 0; 
+    list-style: none;
+    display: flex;
+    text-align: left;
+    padding: 15px 15px;
+    border-bottom: 2px solid var(--border-color);
+    cursor: grab;
+}
+
+.task-item:active{
+    cursor: grabbing;
+}
+
+.visually-hidden{
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    margin: 0 !important;
+    text-wrap: nowrap !important;
+}
+
+.task-list-manager {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.task-list {
+    height: 400px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+
+
+
+.task-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: rgba(213, 213, 213, 0.5);
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    
+    background: var(--border-color); 
+    border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-completed);
+}
+
+.task-text {
+    flex: 1;
+    color: var(--text-primary);
+}
+
+.task-text.completed {
+    color: var(--text-completed);
+    text-decoration: line-through;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%; /* Makes it a circle */
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    transition: border 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect: The gradient border */
+.custom-checkbox:hover {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                var(--check-gradient) border-box;
+}
+
+
+input:checked + .custom-checkbox {
+    background: var(--check-gradient);
+    border: none;
+}
+
+
+.custom-checkbox img {
+    width: 10px;
+    height: 10px;
+}
+
+.delete-task-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.delete-task-btn:hover {
+    opacity: 1;
+}
+
+.task-control-sec {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: var(--text-completed);
+    z-index: 999;
+}
+
+.task-filters {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+button {
+    background: none;
+    border: none;
+    color: var(--text-completed);
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+button:hover {
+    color: var(--text-primary);
+}
+
+button.active {
+    color: hsl(220, 98%, 61%); 
+}
+
+
+/* Search-task styles */
+
+.search-container {
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--check-gradient);
+}
+
+.search-input {
+    width: 100%;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: none;
+    outline: none;
+    padding: 8px 5px;
+    font-size: 14px;
+    align-self: center;
+   box-sizing: border-box;
+   border-radius: 6px;
+   box-shadow: 0 0 25px var(--shadow);
+}
+
+.clear-search {
+    position: absolute;
+    top: 50%;
+    right: 33px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*------- Modal Styles --------*/
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.modal-card {
+    position: relative;
+    background: var(--body-bg);
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    z-index: 1001;
+}
+
+.modal-card h3 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.modal-card p {
+    color: var(--text-main);
+    margin-bottom: 2rem;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color:  var(--text-primary);
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+}
+
+.btn-danger {
+    background: #ff4d4d;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background: #ff3333;
+}
+
+[placeholder] {
+    padding-left: 10px;
+}
+
+
+

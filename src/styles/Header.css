@@ -1,0 +1,62 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.hero-sec-container {
+    background-image: url(/public/assets/bg-mobile-light.jpg);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 15px;
+    color: #fff;
+    transition:  background-image 0.9s ease-in-out;
+}
+
+[data-theme="dark"] .hero-sec-container {
+  background-image: url('/public/assets/bg-mobile-dark.jpg');
+}
+
+/* For Desktop (if you have the desktop assets) */
+@media (min-width: 768px) {
+  .hero-sec-container {
+    background-image: url('/public/assets/bg-desktop-light.jpg');
+  }
+  [data-theme="dark"] .hero-sec-container {
+    background-image: url('/public/assets/bg-desktop-dark.jpg');
+  }
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0;
+    width: 400px;
+    margin-top: -120px;
+  
+}
+
+.app-title {
+    letter-spacing: 10px;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 550;
+    font-weight: 550;
+
+    margin-top: 5px;
+    /* padding-bottom: 20px; */
+    
+}
+
+
