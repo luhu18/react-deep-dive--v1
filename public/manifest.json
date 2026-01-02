@@ -5,24 +5,38 @@
   "description": "High-performance task manager with drag-and-drop and offline support.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.svg",
       "sizes": "64x64",
-      "type": "image/x-icon",
+      "purpose": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo.svg",
+      "type": "image/svg",
+      "sizes": "192x192 512x512",
       "purpose": "any"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "maskable"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
     }
+    
   ],
+
+  "screenshots": [
+    {
+      "src": "Screenshot-desktop.png",
+      "type": "image/png",
+      "sizes": "1920x1051",
+      "form_factor": "wide",
+      "label": "Desktop view of todo Professional"
+  },
+
+  {
+      "src": "Screenshot-mobile.png",
+      "type": "image/png",
+      "sizes": "473x837",
+      "label": "Mobile view of todo Professional"
+  }
+
+  ],
+
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#3a7cfd",
